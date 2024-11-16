@@ -11,7 +11,7 @@
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
-
+from PySide6.QtCharts import *
 from . resources_rc import *
 
 class Ui_MainWindow(object):
@@ -699,17 +699,12 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_save)
 
-        self.btn_test = QPushButton(self.topMenu)
-        self.btn_test.setObjectName(u"btn_test")
-        sizePolicy.setHeightForWidth(self.btn_test.sizePolicy().hasHeightForWidth())
-        self.btn_test.setSizePolicy(sizePolicy)
-        self.btn_test.setMinimumSize(QSize(0, 45))
-        self.btn_test.setFont(font)
-        self.btn_test.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_test.setLayoutDirection(Qt.LeftToRight)
-        self.btn_test.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-save.png)")
+        self.btn_calculate = QPushButton(self.topMenu)
+        self.btn_calculate.setObjectName(u"btn_calculate")
+        self.btn_calculate.setMinimumSize(QSize(0, 45))
+        self.btn_calculate.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-file.png);")
 
-        self.verticalLayout_8.addWidget(self.btn_test)
+        self.verticalLayout_8.addWidget(self.btn_calculate)
 
         self.btn_exit = QPushButton(self.topMenu)
         self.btn_exit.setObjectName(u"btn_exit")
@@ -1402,6 +1397,232 @@ class Ui_MainWindow(object):
 
         self.stackedWidget.addWidget(self.new_page)
 
+        self.calculater = QWidget()
+        self.calculater.setObjectName(u"calculater")
+        self.verticalLayout_21 = QVBoxLayout(self.calculater)
+        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
+        self.scrollArea_2 = QScrollArea(self.calculater)
+        self.scrollArea_2.setObjectName(u"scrollArea_2")
+        self.scrollArea_2.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_2 = QWidget()
+        self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 1050, 556))
+        self.Tformula = QGroupBox(self.scrollAreaWidgetContents_2)
+        self.Tformula.setObjectName(u"Tformula")
+        self.Tformula.setGeometry(QRect(50, 20, 431, 471))
+        self.verticalLayout_30 = QVBoxLayout(self.Tformula)
+        self.verticalLayout_30.setObjectName(u"verticalLayout_30")
+        self.verticalLayout_25 = QVBoxLayout()
+        self.verticalLayout_25.setObjectName(u"verticalLayout_25")
+        self.verticalLayout_24 = QVBoxLayout()
+        self.verticalLayout_24.setObjectName(u"verticalLayout_24")
+        self.verticalLayout_22 = QVBoxLayout()
+        self.verticalLayout_22.setObjectName(u"verticalLayout_22")
+        self.horizontalLayout_6 = QHBoxLayout()
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.label_2 = QLabel(self.Tformula)
+        self.label_2.setObjectName(u"label_2")
+
+        self.horizontalLayout_6.addWidget(self.label_2)
+
+        self.lineEdit_2 = QLineEdit(self.Tformula)
+        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.lineEdit_2.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.horizontalLayout_6.addWidget(self.lineEdit_2)
+
+
+        self.verticalLayout_22.addLayout(self.horizontalLayout_6)
+
+        self.horizontalLayout_8 = QHBoxLayout()
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.label_4 = QLabel(self.Tformula)
+        self.label_4.setObjectName(u"label_4")
+
+        self.horizontalLayout_8.addWidget(self.label_4)
+
+        self.lineEdit_4 = QLineEdit(self.Tformula)
+        self.lineEdit_4.setObjectName(u"lineEdit_4")
+        self.lineEdit_4.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.horizontalLayout_8.addWidget(self.lineEdit_4)
+
+
+        self.verticalLayout_22.addLayout(self.horizontalLayout_8)
+
+        self.horizontalLayout_14 = QHBoxLayout()
+        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.label_7 = QLabel(self.Tformula)
+        self.label_7.setObjectName(u"label_7")
+
+        self.horizontalLayout_14.addWidget(self.label_7)
+
+        self.lineEdit_7 = QLineEdit(self.Tformula)
+        self.lineEdit_7.setObjectName(u"lineEdit_7")
+        self.lineEdit_7.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.horizontalLayout_14.addWidget(self.lineEdit_7)
+
+
+        self.verticalLayout_22.addLayout(self.horizontalLayout_14)
+
+        self.horizontalLayout_18 = QHBoxLayout()
+        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
+        self.label_13 = QLabel(self.Tformula)
+        self.label_13.setObjectName(u"label_13")
+
+        self.horizontalLayout_18.addWidget(self.label_13)
+
+        self.lineEdit_11 = QLineEdit(self.Tformula)
+        self.lineEdit_11.setObjectName(u"lineEdit_11")
+        self.lineEdit_11.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.horizontalLayout_18.addWidget(self.lineEdit_11)
+
+
+        self.verticalLayout_22.addLayout(self.horizontalLayout_18)
+
+
+        self.verticalLayout_24.addLayout(self.verticalLayout_22)
+
+        self.verticalLayout_23 = QVBoxLayout()
+        self.verticalLayout_23.setObjectName(u"verticalLayout_23")
+        self.label_8 = QLabel(self.Tformula)
+        self.label_8.setObjectName(u"label_8")
+
+        self.verticalLayout_23.addWidget(self.label_8)
+
+        self.graphicsView = QChartView(self.Tformula)
+        self.graphicsView.setObjectName(u"graphicsView")
+
+        self.verticalLayout_23.addWidget(self.graphicsView)
+
+
+        self.verticalLayout_24.addLayout(self.verticalLayout_23)
+
+
+        self.verticalLayout_25.addLayout(self.verticalLayout_24)
+
+        self.count1 = QPushButton(self.Tformula)
+        self.count1.setObjectName(u"count1")
+        self.count1.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+
+        self.verticalLayout_25.addWidget(self.count1)
+
+
+        self.verticalLayout_30.addLayout(self.verticalLayout_25)
+
+        self.Simpsonformula = QGroupBox(self.scrollAreaWidgetContents_2)
+        self.Simpsonformula.setObjectName(u"Simpsonformula")
+        self.Simpsonformula.setGeometry(QRect(530, 20, 431, 471))
+        self.verticalLayout_31 = QVBoxLayout(self.Simpsonformula)
+        self.verticalLayout_31.setObjectName(u"verticalLayout_31")
+        self.verticalLayout_26 = QVBoxLayout()
+        self.verticalLayout_26.setObjectName(u"verticalLayout_26")
+        self.verticalLayout_27 = QVBoxLayout()
+        self.verticalLayout_27.setObjectName(u"verticalLayout_27")
+        self.verticalLayout_28 = QVBoxLayout()
+        self.verticalLayout_28.setObjectName(u"verticalLayout_28")
+        self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.label_3 = QLabel(self.Simpsonformula)
+        self.label_3.setObjectName(u"label_3")
+
+        self.horizontalLayout_7.addWidget(self.label_3)
+
+        self.lineEdit_3 = QLineEdit(self.Simpsonformula)
+        self.lineEdit_3.setObjectName(u"lineEdit_3")
+        self.lineEdit_3.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.horizontalLayout_7.addWidget(self.lineEdit_3)
+
+
+        self.verticalLayout_28.addLayout(self.horizontalLayout_7)
+
+        self.horizontalLayout_10 = QHBoxLayout()
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.label_5 = QLabel(self.Simpsonformula)
+        self.label_5.setObjectName(u"label_5")
+
+        self.horizontalLayout_10.addWidget(self.label_5)
+
+        self.lineEdit_5 = QLineEdit(self.Simpsonformula)
+        self.lineEdit_5.setObjectName(u"lineEdit_5")
+        self.lineEdit_5.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.horizontalLayout_10.addWidget(self.lineEdit_5)
+
+
+        self.verticalLayout_28.addLayout(self.horizontalLayout_10)
+
+        self.horizontalLayout_15 = QHBoxLayout()
+        self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
+        self.label_9 = QLabel(self.Simpsonformula)
+        self.label_9.setObjectName(u"label_9")
+
+        self.horizontalLayout_15.addWidget(self.label_9)
+
+        self.lineEdit_8 = QLineEdit(self.Simpsonformula)
+        self.lineEdit_8.setObjectName(u"lineEdit_8")
+        self.lineEdit_8.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.horizontalLayout_15.addWidget(self.lineEdit_8)
+
+
+        self.verticalLayout_28.addLayout(self.horizontalLayout_15)
+
+        self.horizontalLayout_19 = QHBoxLayout()
+        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
+        self.label_14 = QLabel(self.Simpsonformula)
+        self.label_14.setObjectName(u"label_14")
+
+        self.horizontalLayout_19.addWidget(self.label_14)
+
+        self.lineEdit_12 = QLineEdit(self.Simpsonformula)
+        self.lineEdit_12.setObjectName(u"lineEdit_12")
+        self.lineEdit_12.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.horizontalLayout_19.addWidget(self.lineEdit_12)
+
+
+        self.verticalLayout_28.addLayout(self.horizontalLayout_19)
+
+
+        self.verticalLayout_27.addLayout(self.verticalLayout_28)
+
+        self.verticalLayout_29 = QVBoxLayout()
+        self.verticalLayout_29.setObjectName(u"verticalLayout_29")
+        self.label_10 = QLabel(self.Simpsonformula)
+        self.label_10.setObjectName(u"label_10")
+
+        self.verticalLayout_29.addWidget(self.label_10)
+
+        self.graphicsView_2 = QGraphicsView(self.Simpsonformula)
+        self.graphicsView_2.setObjectName(u"graphicsView_2")
+
+        self.verticalLayout_29.addWidget(self.graphicsView_2)
+
+
+        self.verticalLayout_27.addLayout(self.verticalLayout_29)
+
+
+        self.verticalLayout_26.addLayout(self.verticalLayout_27)
+
+        self.count2 = QPushButton(self.Simpsonformula)
+        self.count2.setObjectName(u"count2")
+        self.count2.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+
+        self.verticalLayout_26.addWidget(self.count2)
+
+
+        self.verticalLayout_31.addLayout(self.verticalLayout_26)
+
+        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
+
+        self.verticalLayout_21.addWidget(self.scrollArea_2)
+
+        self.stackedWidget.addWidget(self.calculater)
+
         self.test_page=QWidget()
         self.test_page.setObjectName(u"test_page")
         self.test_label = QLabel(self.test_page)
@@ -1577,8 +1798,8 @@ class Ui_MainWindow(object):
         self.btn_widgets.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
         self.btn_new.setText(QCoreApplication.translate("MainWindow", u"New", None))
         self.btn_save.setText(QCoreApplication.translate("MainWindow", u"Save", None))
-        self.btn_test.setText(QCoreApplication.translate("MainWindow", u"Test", None))
         self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
+        self.btn_calculate.setText(QCoreApplication.translate("MainWindow", u"Calculate", None))
         self.toggleLeftBox.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
         self.extraLabel.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
 #if QT_CONFIG(tooltip)
@@ -1686,6 +1907,21 @@ class Ui_MainWindow(object):
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
         self.label.setText(QCoreApplication.translate("MainWindow", u"NEW PAGE TEST", None))
+        self.Tformula.setTitle(QCoreApplication.translate("MainWindow", u"\u590d\u5408T\u578b\u516c\u5f0f", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u51fd\u6570\uff1a", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u5de6\u533a\u95f4", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"\u53f3\u533a\u95f4", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"\u5b50\u533a\u95f4\u7684\u6570\u91cf\uff1a", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u7247\u5c55\u793a", None))
+        self.count1.setText(QCoreApplication.translate("MainWindow", u"\u8ba1\u7b97", None))
+        self.Simpsonformula.setTitle(
+            QCoreApplication.translate("MainWindow", u"\u590d\u5408Simpson\u6c42\u79ef\u516c\u5f0f", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u51fd\u6570\uff1a", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"\u5de6\u533a\u95f4", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"\u53f3\u533a\u95f4", None))
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"\u5b50\u533a\u95f4\u7684\u6570\u91cf\uff1a", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u7247\u5c55\u793a", None))
+        self.count2.setText(QCoreApplication.translate("MainWindow", u"\u8ba1\u7b97", None))
         self.test_label.setText(QCoreApplication.translate("MainWindow", u"NEW NPPPP TEST", None))
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
@@ -1693,4 +1929,3 @@ class Ui_MainWindow(object):
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"By: Shen.Wu.Lin", None))
         self.version.setText(QCoreApplication.translate("MainWindow", u"vNB", None))
     # retranslateUi
-
